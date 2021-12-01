@@ -1,0 +1,27 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: mytinder_development
+  username: admin
+  password: admin
+  #host: localhost
+
+  #port: 5432
+
+test:
+  <<: *default
+  database: mytinder_test
+  username: admin
+  password: admin
+  #host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: my--tinder_production
+  username: my--tinder
+  password: <%= ENV['MY--TINDER_DATABASE_PASSWORD'] %>
