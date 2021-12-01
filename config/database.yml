@@ -8,8 +8,7 @@ development:
   database: mytinder_development
   username: admin
   password: admin
-  #host: localhost
-  #port: 5432
+  port: 5434
 
 test:
   <<: *default
@@ -17,7 +16,7 @@ test:
   username: admin
   password: admin
   #host: localhost
-  port: 5432
+  port: 5434
 
 production:
   <<: *default
