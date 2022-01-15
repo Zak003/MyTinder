@@ -18,6 +18,10 @@ require("@rails/activestorage").start()
 
 require("bootstrap")
 
+/*require("@fortawesome/fontawesome-free")*/
+
+require("../includes/slides.js")
+
 // CSS
 import 'scss/site'
 // JS

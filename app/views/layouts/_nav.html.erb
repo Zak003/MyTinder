@@ -1,13 +1,13 @@
 <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-      <%= image_pack_tag('TinderLogo.png', class: 'logo-navbar') %>
+      <%= image_pack_tag('tinder_icon.png', class: 'logo-navbar') %>
       <h5 class="my-0 mr-md-auto font-weight-normal">MyTinder</h5>
 
       <% if account_signed_in? %>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-          <%= link_to "Browse", "#", class: "me-3 py-2 text-dark text-decoration-none" %>
+          <%= link_to "Browse", browse_path, class: "me-3 py-2 text-dark text-decoration-none" %>
           <%= link_to "My Matches", "#", class: "me-3 py-2 text-dark text-decoration-none" %>
-          <%= link_to "Settings", "#", class: "me-3 py-2 text-dark text-decoration-none" %>
+          <%= link_to "Settings", edit_account_registration_path, class: "me-3 py-2 text-dark text-decoration-none" %>
         </nav>
 
         <%= link_to "Sign out", destroy_account_session_path, method: :delete, class: "btn btn-secondary me-2" %>
