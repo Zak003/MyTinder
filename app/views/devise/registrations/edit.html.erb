@@ -32,14 +32,12 @@
   </div>
 
   <div class="input-group">
-    <%= f.label :images %>
-    <%= f.file_field :images, multiple: true %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
   </div>
 
-  <% if resource.object.images.attached? %>
-    <% resource.object.images.each do |image| %>
-      <%= image_tag image, width: "200px" %>
-    <% end %>
+  <% if @account.image.attached? %>
+    <%= image_tag @account.image, width: "200px" %>
   <% end %>
 
   <div class="field">
