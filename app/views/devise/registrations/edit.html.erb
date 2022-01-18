@@ -36,6 +36,17 @@
     <%= f.file_field :images, multiple: true %>
   </div>
 
+  <% if resource.object.images.attached? %>
+    <% resource.object.images.each do |image| %>
+      <%= image_tag image, width: "200px" %>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autocomplete: "first_name" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
