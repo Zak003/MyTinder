@@ -6,11 +6,21 @@ $(function(){
     //$activeSlide.addClass("showing");
 
     $("#decline").on("click", function(){
+        console.log("decline");
         goToSlide('decline');
     });
 
     $("#approve").on("click", function(){
-        goToSlide('approve');
+        var user_id = $activeSlide.data("id");
+
+        //beleženje id-ja od userja, ki lajka
+        console.log(user_id);
+        $.ajax({
+            url: "/approve/" + user_id,
+            method: "post",
+            dataType: "ajax"
+        });
+            goToSlide('approve');
     });
 
     function goToSlide(action) {

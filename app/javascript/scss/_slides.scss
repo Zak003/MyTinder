@@ -15,16 +15,28 @@
     opacity: 0;
     z-index: 1;
 
-    font-size: 40px;
     //padding: 40px;
     box-sizing: border-box;
-    background: #333;
+    //background: #333;
     color: #fff;
 
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
     -o-transition: opacity 1s;
     transition: opacity 1s;
+}
+
+.user-details{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    //text-align: center;
+    
+    .user-name{
+        font-size: 28px;
+    }
 }
 
 .showing {
@@ -41,7 +53,15 @@
     }
 }
 
-.slide:nth-of-type(1) {
+.image-carousel{
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*.slide:nth-of-type(1) {
     background: red;
 }
 .slide:nth-of-type(2) {
@@ -55,4 +75,4 @@
 }
 .slide:nth-of-type(5) {
     background: purple;
-}
+}*/
