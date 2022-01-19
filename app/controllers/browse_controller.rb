@@ -6,10 +6,6 @@ class BrowseController < ApplicationController
         liked_account_ids << current_account.id
         
         @users = Account.where.not(id: liked_account_ids)
-    end
-
-    def matches
-        #prikazuje matche
         @matches = current_account.matches
     end
 
