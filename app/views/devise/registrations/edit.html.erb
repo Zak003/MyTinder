@@ -31,6 +31,11 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autocomplete: "first_name" %>
+  </div>
+
   <div class="input-group">
     <%= f.label :image %>
     <%= f.file_field :image %>
@@ -39,11 +44,6 @@
   <% if @account.image.attached? %>
     <%= image_tag @account.image, width: "200px" %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autocomplete: "first_name" %>
-  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
