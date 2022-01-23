@@ -16,3 +16,41 @@
         font-weight: bold;
     }
 }
+
+#conversation{
+    display: none;
+    width: 65%;
+    //height: 96%;
+    position: absolute;
+    //left: 2%;
+    top: 2%;
+    padding: 30px;
+    z-index: 1000;
+    background-color:  #fff;
+
+    .top-bar{
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+
+    .bottom-bar{
+        border-top: 1px solid #ddd;
+        padding-top: 40px;
+        margin-top: 30px;
+    }
+
+    .top-bar-circle{
+        float: left;
+        margin-right: 3px;
+    }
+
+    #close-conversation{
+        float: right;
+        cursor: pointer;
+
+        &:hover{
+            color: #000 !important;
+        }
+    }
+}

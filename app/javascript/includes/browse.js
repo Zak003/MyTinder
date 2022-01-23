@@ -2,13 +2,19 @@ $(function(){
 
     var $activeSlide = $('#slides .slide:first-child');
 
-    //show first slide
-    //$activeSlide.addClass("showing");
-
     $(".match-tile").on("click", function(){
         var account_id = $(this).data("id");
-        console.log( account_id );
+
+        $.ajax({
+            url: "/get/conversation/"+account_id,
+            method: "post",
+            dataType: "script"
+        })
     })
+
+    $("#close-conversation").on("click", function(){
+        $("#conversation").hide();
+    });
 
     $("#decline").on("click", function(){
         console.log("decline");
