@@ -45,6 +45,20 @@
         margin-right: 3px;
     }
 
+    .conversation-message{
+        background-color: #f2f2f2;
+        
+        p{
+            margin: 0;
+        }
+    }
+
+    .sent-by-me{
+        .conversation-message{
+            background: #b3d7ff;
+        }
+    }
+
     #close-conversation{
         float: right;
         cursor: pointer;
