@@ -27,8 +27,27 @@
   </div>
 
   <div class="input-group">
-  <%= f.label :image %>
-  <%= f.file_field :image %>
+    <%= f.label :image %>
+    <%= f.file_field :image, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :job_studies %><br />
+    <%= f.text_field :job_studies, autocomplete: "job_studies", :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autocomplete: "location", :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bornDate %><br />
+    <%= f.text_field :bornDate, 
+      data: {
+        controller: "flatpickr",
+        flatpickr_date_format: "d.m.Y",
+      } %>
   </div>
 
   <div class="actions">
