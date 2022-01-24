@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4 bg-white">
+    <div class="col-md-4 bg-white" style="min-height: 100vh;">
         <%= render "layouts/profile_bar" %>
         
         <ul class="nav nav-tinder-sidebar mb-3" id="pills-tab" role="tablist">
@@ -30,9 +30,9 @@
                 </div>
             <% end %>
             <div class="user-details"> 
-                <span class="user-name"><%= user.first_name %></span>, 31 <br />
-                <i class="fa fa-graduation-cap mr-1"></i> Job / studies <br />
-                <i class="fa fa-map-marker mr-3"></i> Location <br />
+                <span class="user-name"><%= user.first_name %></span>, <%= (((Time.zone.now.to_i) - (user.bornDate.to_i)) / 1.year.seconds).floor %> <br />
+                <i class="fa fa-graduation-cap mr-1"></i> <%= user.job_studies %> <br />
+                <i class="fa fa-map-marker mr-3"></i> <%= user.location %> <br />
             </div>
             </li>
             <% end %>

@@ -45,6 +45,25 @@
     <%= image_tag @account.image, width: "200px" %>
   <% end %>
 
+ <div class="field">
+    <%= f.label :job_studies %><br />
+    <%= f.text_field :job_studies, autocomplete: "job_studies" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autocomplete: "location" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bornDate %><br />
+    <%= f.text_field :bornDate, 
+      data: {
+        controller: "flatpickr",
+        flatpickr_date_format: "d.m.Y",
+      }, autocomplete: "bornDate" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
