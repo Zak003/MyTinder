@@ -1,30 +1,35 @@
 class BrowseController < ApplicationController
 
     def browse
-        #da se userji ne ponavljajo ko ga že lajkamo
-        liked_account_ids = Like.where(account_id: current_account.id).map(&:liked_account_id)
-        liked_account_ids << current_account.id
-        
-        @users = Account.where.not(id: liked_account_ids)
-        @matches = current_account.matches
+        @matches = Match.matches_for( current_account.id )
+        @users = Match.recommended_matches_for( current_account.id )
+    end
+
+    def get_more_users
+        #return next 10 users via ajax
+
     end
 
     def approve
         account_id = params[:id]
-        #user swipes right
-        logger.debug "User id for matching is #{account_id}";
+        match = Match.between( account_id, current_account.id)
 
-        #create like for user
-        new_like = Like.new(liked_account_id: account_id)
-        new_like.account_id = current_account.id
+        if match.present?
+            match = match.first
 
-        if new_like.save
+            if match.account_1 == current_account.id
+                match.account_1_approves = true
+            else
+                match.account_2_approves = true
+            end
+        else
+            match = Match.new(account_1: current_account.id,  account_2: account_id, account_1_approves: true)
+        end
 
-            #check if user already likes us back
-            existing_like = Like.where(account_id: account_id, liked_account_id: current_account.id).count
-            @they_like_us = existing_like > 0
+        if match.save
+            #show successful save
+
         else 
-            #issue saving like - return a warning message
         end
 
     end
@@ -33,17 +38,22 @@ class BrowseController < ApplicationController
         #user swipes left
     end
     
-    def conversation
+    def open_conversation
         id = params[:id]
         @profile = Account.find(id)
-        likes = Like.where(account_id: current_account.id, liked_account_id: id)
-        @match = likes.first if likes.size > 0
+        match = Match.between(current_account.id, id)
+        @match = match.first if match.present?
+
+        conversation = Conversation.between(id, current_account.id)
+        
+        @conversation = conversation.size > 0 ? conversation.first : Conversation.new
+        @messages = @conversation.messages.includes(account: :image_attachment) if @conversation.persisted?
+        @message = @conversation.messages.build
 
         if @profile.present?
             #get conversation entries for this user
             
             respond_to do |format|
-
                 format.js{
                      render "browse/conversation"
                 }
