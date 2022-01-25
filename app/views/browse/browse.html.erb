@@ -16,7 +16,7 @@
             </div>
             <div class="tab-pane fade" id="pills-messages" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="col">
-                     
+                     <%= render partial: "conversations/list"%>
                 </div>
             </div>
         </div>  
@@ -28,6 +28,12 @@
             <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
             <% if user.image.attached? %>
                 <div class="image-carousel" style="background-image: url('<%= url_for user.image %>')">
+                </div>
+            <% elsif user.image_social? %>
+                <div class="image-carousel" style="background-image: url('<%= image_url user.image_social %>')">
+                </div>
+            <% else %>
+                <div class="image-carousel" style="background-image: url('<%= asset_pack_url('media/images/default-profile.png') %>')">
                 </div>
             <% end %>
             <div class="user-details"> 

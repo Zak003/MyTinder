@@ -3,7 +3,6 @@ class Conversation < ApplicationRecord
     accepts_nested_attributes_for :messages, allow_destroy: true
 
     validates_presence_of :sender_id, :recipient_id
-
     validates_uniqueness_of :sender_id, scope: :recipient_id
 
     scope :between, -> (sender_id, recipient_id) do
