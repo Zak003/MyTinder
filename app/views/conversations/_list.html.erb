@@ -1,0 +1,11 @@
+<% if @conversations? %>
+    <% @conversations.each do |conversation| %>
+        <%= profile_thumbnail conversation.account %>
+
+        <strong><%= conversation.account.first_name %></strong>
+        <%= conversation.messages.last %>
+    <% end %>
+<% else %>
+    <p> No messages to display. </p>
+<% end %>
+
