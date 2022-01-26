@@ -1,5 +1,5 @@
 <div class="d-flex flex-column flex-md-row align-items-center pb-3 border-bottom shadow-sm">
-      <%= image_pack_tag('tinder_icon.png', class: 'logo-navbar') %>
+      <%= link_to image_pack_tag('tinder_icon.png', class: 'logo-navbar'), root_path %>
       <h5 class="my-0 mr-md-auto font-weight-normal">MyTinder</h5>
 
       <% if account_signed_in? %>
@@ -14,13 +14,10 @@
 
         <% else %>
           <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Features</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Support</a>
-            <a class="me-3 py-2 text-dark text-decoration-none" href="#">Pricing</a>
           </nav>
 
-        <%= link_to "Sign in", new_account_session_path, class: "btn btn-secondary me-2" %>
-        <%= link_to "Sign up", new_account_registration_path, class: "btn btn-outline-primary me-3" %>
+        <%= link_to "Sign in", new_account_session_path, class: "btn btn-secondary me-2", style:"width: 10%; font-weight: bold;"%>
+        <%= link_to "Sign up", new_account_registration_path, class: "btn btn-outline-primary me-3", style:"width: 10%;" %>
 
       <% end %>
 </div>

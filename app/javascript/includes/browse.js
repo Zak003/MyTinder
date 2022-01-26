@@ -12,6 +12,15 @@ $(function(){
         })
     })
 
+    $(".profile-info").on("click", function(){
+        var $details = $(this).closest(".slide").find(".more-details");
+
+        $details.toggle();
+
+        //move controls down
+        $("#slide-controls").toggleClass("open");
+    });
+
     $(".open-conversation").on("click", function(){
         var account_id = $(this).data("id");
 
