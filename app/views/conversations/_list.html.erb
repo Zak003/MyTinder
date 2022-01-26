@@ -1,10 +1,10 @@
-<% if @conversation.any? %>
-    <% @conversation.each do |conversation| current_account = get_account_from_conversations(conversation) %>
+<% if @conversation %>
+    <% @conversation.each do |conversation| account = get_account_from_conversations(conversation) %>
     <div class="row">
-        <div class="col open-conversation" data-id="<%= current_account.id %>">
-            <%= profile_thumbnail current_account %>
-
-            <strong><%= current_account.first_name%></strong>
+        <div class="col open-conversation" data-id="<%= account.id %>">
+            <%= profile_thumbnail account %>
+            <%=  conversation.id %>
+            <strong><%= account.first_name %></strong>
             <%= simple_format conversation.messages.last.body %>
         </div>
     </div>
