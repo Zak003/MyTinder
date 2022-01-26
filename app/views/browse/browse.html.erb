@@ -33,21 +33,39 @@
                 <div class="image-carousel" style="background-image: url('<%= image_url user.image_social %>')">
                 </div>
             <% else %>
-                <div class="image-carousel" style="background-image: url('<%= asset_pack_url('media/images/default-profile.png') %>')">
+                <div class="image-carousel" style="background-image: url('asset_pack_url('media/images/default-profile.png'))">
                 </div>
             <% end %>
             <div class="user-details"> 
                 <span class="user-name"><%= user.first_name %></span>, <%= (((Time.zone.now.to_i) - (user.bornDate.to_i)) / 1.year.seconds).floor %> <br />
                 <i class="fa fa-graduation-cap mr-1"></i> <%= user.job_studies %> <br />
                 <i class="fa fa-map-marker mr-3"></i> <%= user.location %> <br />
+
+                <span class="profile-info fa-stack">
+                    <i class="fa fa-circle text-white fa-stack-2x"></i>
+                    <i class="fa fa-info text-dark fa-stack-1x"></i>
+                </span>
             </div>
+
+            <div class="more-details text-dark">
+                <% if user.description %>
+                    <%= simple_format user.description %>
+                <% end %>
+            </div>
+
             </li>
             <% end %>
         </ul>
                 
         <div id="slide-controls">
-            <div id="decline" class="d-inline-block"><i class="fas fa-times-circle fa-2x"></i></div>
-            <div id="approve" class="d-inline-block"><i class="fas fa-heart fa-2x"></i></div>
+            <div id="decline" class="d-inline-block fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x text-white"></i>
+                <i class="fas fa-times fa-stack-1x text-danger"></i>
+            </div>
+            <div id="approve" class="d-inline-block fa-stack fa-2x">
+                <i class="fas fa-circle fa-stack-2x text-white"></i>
+                <i class="fas fa-heart fa-stack-1x text-success"></i>
+            </div>
         </div>
 
         <div id="conversation">
