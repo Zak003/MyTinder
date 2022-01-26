@@ -12,12 +12,29 @@ $(function(){
         })
     })
 
+    $(".open-conversation").on("click", function(){
+        var account_id = $(this).data("id");
+
+        $.ajax({
+            url: "/get/conversation/"+account_id,
+            method: "post",
+            dataType: "script"
+        })
+    })
+
     $("#close-conversation").on("click", function(){
         $("#conversation").hide();
     });
 
     $("#decline").on("click", function(){
-        console.log("decline");
+        var user_id = $activeSlide.data("id");
+
+        $.ajax({
+            url: "/decline/" + user_id,
+            method: "post",
+            dataType: "ajax"
+        });
+
         goToSlide('decline');
     });
 

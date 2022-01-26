@@ -5,6 +5,11 @@ class ConversationsController < ApplicationController
         @conversation.sender_id = current_account.id
         @conversation.messages.first.account_id = current_account.id
 
+        if @conversation.save!
+            console.log("Dela");
+        else
+            console.log("Ne dela");
+        end
     end
 
     def update

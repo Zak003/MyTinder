@@ -3,7 +3,15 @@
         
     <%= link_to "Sign Out ", destroy_account_session_path, method: :delete ,class: "sign_out text-white", style:""%> 
     
-    <%= link_to image_tag(current_account.image, width: "40px", height: "40px", class: "float-left profile-thumb rounded-circle mr-3"), edit_account_registration_path %>
+    <%= link_to(edit_account_registration_path, style:"color: #fd267d;") do %>
+        <% if current_account.image.attached? %>
+                    <%= image_tag(current_account.image, width: "40px", height: "40px", class: "float-left profile-thumb rounded-circle mr-3") %>
+                    <% elsif current_account.image_social? %>
+                        <%= image_tag(current_account.image_social, width: "40px", height: "40px", class: "float-left profile-thumb rounded-circle mr-3") %>
+                    <% else %>
+                        <%= image_pack_tag('default-profile.png', width: "40px", height: "40px", class: "float-left profile-thumb rounded-circle mr-3") %>
+        <% end %>
+    <% end %>
     
     <%= link_to "My Profile ", edit_account_registration_path ,class: "my-profile text-white", style:""%> 
 </div>
