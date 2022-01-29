@@ -6,14 +6,16 @@ class ConversationsController < ApplicationController
         @conversation.messages.first.account_id = current_account.id
 
         if @conversation.save!
-            console.log("Dela");
+            logger.debug "Conversation has been saved!"
         else
-            console.log("Ne dela");
+            logger.debug "Unable to save conversation!"
         end
     end
 
     def update
         @conversation = Conversation.find(params[:id])
+        @conversation.sender_id = current_account.id
+
         
         respond_to do |format|
             format.js {
@@ -21,7 +23,7 @@ class ConversationsController < ApplicationController
                     @messages = @conversation.messages
                     render "browse/conversation_messages"
                 else
-                    
+
                 end
                 }
         end
