@@ -2,9 +2,9 @@
     <% @conversation.each do |conversation| account = get_account_from_conversation(conversation) %>
         <% if account.present? %>
             <div class="row">
-                <div class="col open-conversation" data-id="<%= account %>">
+                <div class="col open-conversation" data-id="<%= account.id %>">
                     <%= profile_thumbnail account %>
-                    
+
                     <strong><%= account.first_name %></strong>
                     <%= simple_format conversation.messages.last.body %>
                 </div>

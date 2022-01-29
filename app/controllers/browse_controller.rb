@@ -6,11 +6,6 @@ class BrowseController < ApplicationController
         @conversation = Conversation.includes(:messages).where("conversations.sender_id = ? OR conversations.recipient_id = ?", current_account.id, current_account.id)
     end
 
-    def get_more_users
-        #return next 10 users via ajax
-
-    end
-
     def approve
         account_id = params[:id]
         match = Match.between( account_id, current_account.id )
@@ -67,7 +62,6 @@ class BrowseController < ApplicationController
         @match = match.first if match.present?
 
         conversation = Conversation.between(id, current_account.id)
-        
         @conversation = conversation.size > 0 ? conversation.first : Conversation.new
         @messages = @conversation.messages.includes(account: :image_attachment) if @conversation.persisted?
         @message = @conversation.messages.build

@@ -45,7 +45,7 @@
 
       <div class="form-group">
         <%= f.label :bornDate %><br />
-        <%= f.text_field :bornDate, 
+        <%= f.text_field :bornDate, :required => true,
           data: {
             controller: "flatpickr",
             flatpickr_date_format: "d.m.Y",
