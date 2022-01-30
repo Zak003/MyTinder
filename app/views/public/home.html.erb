@@ -4,9 +4,10 @@
           <div class="card-header py-3" style="margin-top: 20px;">
             <h4 class="my-0 fw-normal" style="font-weight: bold; font-size: 50px;">Welcome to My Tinder</h4>
           </div>
-          <div class="card-body" style="background-image: url(/assets/tinder-background.jpg); opacity: 70%;">
-            <p style="font-family: Calibri; font-size: 25px; color: white; ">My Tinder is one of the most popular dating apps. Here you can explore new people, chat with them ...</p>
-            <%= link_to "Sign up now", new_account_registration_path, class: "w-50 btn btn-lg btn-outline-primary", style: "margin-top: 25%; color: white; border-color: white; font-weight: bold;" %>
+          <div class="card-body">
+            <p class="text-black" style="font-family: Calibri; font-size: 25px;">My Tinder is one of the most popular dating apps. Here you can explore new people, chat with them ...</p>
+            <%= image_pack_tag('lets-talk.png', width: "700px", height: "400px") %>
+            <%= link_to "Sign up now", new_account_registration_path, class: "w-50 btn btn-lg btn-outline-primary", style: "color: white; border-color: white; background: linear-gradient(262deg, #ff7854, #fd267d); font-weight: bold;" %>
           </div>
         </div>
       </div>

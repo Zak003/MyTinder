@@ -1,30 +1,32 @@
-<div class="container">
+<div class="container w-50" style="margin-top: 20px;">
   <div class="row">
-    <h2 style="text-align: center; margin-top: 20px;">Log in</h2>
+    <div class="card mb-4 rounded-3 shadow-sm" style="text-align: center;">
+    <h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group">
+      <div class="form-group center mb-3">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control text-center" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group w-50-center">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control text-center" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="form-group">
+        <div class="form-group mt-3 mb-3">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
       <% end %>
 
       <div class="form-group">
-        <%= f.submit "Log in" ,class: "w-100 btn btn-primary btn-lg mb-4" %>
+        <%= f.submit "Log in" , class: "w-50 btn btn-primary btn-lg mb-4" %>
       </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
+    </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 .logo-navbar{
-    max-height: 75px;
+    max-height: 85px;
     margin-left: 20px;
 }
 
@@ -16,6 +16,11 @@
 
 .col {
     flex: 1 0 0%;
+}
+
+body, html{
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 
