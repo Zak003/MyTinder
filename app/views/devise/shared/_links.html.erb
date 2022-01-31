@@ -1,6 +1,6 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider), method: :post, style: "margin-left: 25%;", class: "w-50 fab fa-google btn btn-lg btn-primary" %><br />
+    <%= link_to "Sign in with Google", omniauth_authorize_path(resource_name, provider), method: :post, style: "margin-left: 25%;", class: "w-50 login-with-google-btn" %><br />
   <% end %>
 
 <%- if controller_name != 'sessions' %>

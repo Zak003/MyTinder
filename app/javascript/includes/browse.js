@@ -35,6 +35,10 @@ $(function(){
         $("#conversation").hide();
     });
 
+    $("#close-alert").on("click", function(){
+        $("#alert").hide();
+    });
+
     $("#decline").on("click", function(){
         var user_id = $activeSlide.data("id");
 
