@@ -18,6 +18,7 @@ The web application includes creating user accounts, browsing other users, sendi
 ## Technologies
 - Ruby on Rails
 - Postgresql
+- Amazon S3
 - HTML, CSS, JS
 
 
