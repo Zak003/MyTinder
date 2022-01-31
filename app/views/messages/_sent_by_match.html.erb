@@ -1,6 +1,12 @@
 <div class="row mb-2">
     <div class="col-sm-2 col-lg-1 text-right">
-        <%= image_tag message.account.image, class: "rounded-circle", width: "40px", height: "40px" if message.account.image %>
+        <% if message.account.image.attached? %>
+            <%= image_tag(message.account.image, class: "rounded-circle", width: "40px", height: "40px") %>
+        <% elsif message.account.image_social? %>
+            <%= image_tag(message.account.image_social, class: "rounded-circle", width: "40px", height: "40px") %>
+        <% else %>
+            <%= image_pack_tag('media/images/default-profile.png', width: "40px", height: "40px", class: "rounded-circle mt-2 mb-4") %> 
+        <% end %>
         </div>
 
         <div class="col-sm-10 col-lg-11">
