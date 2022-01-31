@@ -1,60 +1,53 @@
-<div class="container">
+<div class="container" style="margin-top: 20px;">
   <div class="row">
-    <h2 style="text-align: center; margin-top: 20px;">Sign up</h2>
+  <div class="card mb-4 rounded-3 shadow-sm">
+    <h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Sign up</h2>
 
+    <p sytle="float: right;">* required</p>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email *" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :first_name %><br />
-        <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control" %>
+      <div class="form-group mt-4">
+        <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control", placeholder: "First name *" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password %>
+      <div class="form-group ">
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password (6 characters minimum) *" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+      <div class="form-group mt-4">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password confirmation *" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-4">
         <%= f.label :image %>
         <%= f.file_field :image, class: "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :job_studies %><br />
-        <%= f.text_field :job_studies, autocomplete: "job_studies", :required => true, class: "form-control" %>
+      <div class="form-group mt-4">
+        <%= f.text_field :job_studies, autocomplete: "job_studies", :required => true, class: "form-control", placeholder: "Job/studies *" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :location %><br />
-        <%= f.text_field :location, autocomplete: "location", :required => true, class: "form-control" %>
+      <div class="form-group mt-4">
+        <%= f.text_field :location, autocomplete: "location", :required => true, class: "form-control", placeholder: "Location *" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :bornDate %><br />
-        <%= f.text_field :bornDate, :required => true,
+      <div class="form-group mt-4">
+        <%= f.text_field :bornDate, required: true, placeholder: "Born date *",
           data: {
             controller: "flatpickr",
             flatpickr_date_format: "d.m.Y",
           } %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :description %><br />
-        <%= f.text_field :description, autocomplete: "description", class: "form-control" %>
+      <div class="form-group mt-4">
+        <%= f.text_field :description, autocomplete: "description", class: "form-control", placeholder: "Description" %>
       </div>
 
       <div class="form-group">
@@ -63,5 +56,6 @@
     <% end %>
 
     <%= render "devise/shared/links" %>
+    </div>
     </div>
   </div>

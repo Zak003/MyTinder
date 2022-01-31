@@ -7,6 +7,10 @@ class ConversationsController < ApplicationController
 
         if @conversation.save!
             logger.debug "Conversation has been saved!"
+            flash[:success] = "Your message has been sent."
+            respond_to do |format|
+                format.js {render inline: "location.reload();" }
+              end
         else
             logger.debug "Unable to save conversation!"
         end
@@ -34,4 +38,5 @@ class ConversationsController < ApplicationController
     def conversation_params
         params.require(:conversation).permit(:recipient_id, messages_attributes: [:body, :account_id])
     end
+
 end
