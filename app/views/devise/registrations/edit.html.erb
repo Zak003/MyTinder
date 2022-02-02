@@ -10,7 +10,12 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
+       <div class="choose-gender form-group mt-4 mb-4">
+        <%= f.label "Choose the gender you are looking for on MyTinder(then update your account):" %>
+        <%= f.select :showgender, ['Male', 'Female'], {:required => true}, class: "form-select", autocomplete: "showgender", style: "width: 30%; margin: auto; margin-top: 10px;" %>      
+      </div>
+
+      <div class="form-group mt-4">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
@@ -19,7 +24,7 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div class="form-group">
+      <div class="form-group mt-4">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
         <% if @minimum_password_length %>
@@ -33,17 +38,17 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-4">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
         <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-4">
         <%= f.label :first_name %><br />
         <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-4">
         <%= f.label :image %>
         <%= f.file_field :image, class: "form-control" %>
       </div>
@@ -52,26 +57,32 @@
         <%= image_tag @account.image, width: "150px", style: "margin-top: 20px; margin-bottom: 20px;"%>
       <% end %>
 
-    <div class="form-group">
+    <div class="form-group mt-4">
         <%= f.label :job_studies %><br />
         <%= f.text_field :job_studies, autocomplete: "job_studies", class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-4">
         <%= f.label :location %><br />
         <%= f.text_field :location, autocomplete: "location", class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-4" style="width: 21%;">
         <%= f.label :bornDate %><br />
-        <%= f.text_field :bornDate, 
+        <%= f.text_field :bornDate,
           data: {
             controller: "flatpickr",
             flatpickr_date_format: "d.m.Y",
-          }, autocomplete: "bornDate", class: "form-control" %>
+            flatpickr_default_date: :bornDate,
+          }, class: "form-select" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group mt-4 mb-4">
+        <%= f.label :gender %>
+        <%= f.select :gender, ['Male', 'Female'], {:required => true}, class: "form-select", autocomplete: "gender", style: "width: 21%;" %>      
+      </div>
+
+      <div class="form-group mt-4">
         <%= f.label :description %><br />
         <%= f.text_field :description, autocomplete: "description", class: "form-control" %>
       </div>
