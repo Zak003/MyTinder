@@ -36,35 +36,37 @@
 
         <ul id="slides">
             <% @users.each_with_index do |user, i| %>
-            <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
-            <% if user.image.attached? %>
-                <div class="image-carousel" style="background-image: url('<%= url_for user.image %>')">
-                </div>
-            <% elsif user.image_social? %>
-                <div class="image-carousel" style="background-image: url('<%= image_url user.image_social %>')">
-                </div>
-            <% else %>
-                <div class="image-carousel" style="background-image: url('<%= asset_pack_url('media/images/default-profile.png') %>')">
-                </div>
-            <% end %>
-            <div class="user-details"> 
-                <span class="user-name"><%= user.first_name %></span>, <%= (((Time.zone.now.to_i) - (user.bornDate.to_i)) / 1.year.seconds).floor %> <br />
-                <i class="fa fa-graduation-cap mr-1"></i> <%= user.job_studies %> <br />
-                <i class="fa fa-map-marker mr-3"></i> <%= user.location %> <br />
+                <% if current_account.showgender == user.gender %>
+                    <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
+                    <% if user.image.attached? %>
+                        <div class="image-carousel" style="background-image: url('<%= url_for user.image %>')">
+                        </div>
+                    <% elsif user.image_social? %>
+                        <div class="image-carousel" style="background-image: url('<%= image_url user.image_social %>')">
+                        </div>
+                    <% else %>
+                        <div class="image-carousel" style="background-image: url('<%= asset_pack_url('media/images/default-profile.png') %>')">
+                        </div>
+                    <% end %>
+                    <div class="user-details"> 
+                        <span class="user-name"><%= user.first_name %></span>, <%= (((Time.zone.now.to_i) - (user.bornDate.to_i)) / 1.year.seconds).floor %> <br />
+                        <i class="fa fa-graduation-cap mr-1"></i> <%= user.job_studies %> <br />
+                        <i class="fa fa-map-marker mr-3"></i> <%= user.location %> <br />
 
-                <span class="profile-info fa-stack">
-                    <i class="fa fa-circle text-white fa-stack-2x"></i>
-                    <i class="fa fa-info text-dark fa-stack-1x"></i>
-                </span>
-            </div>
+                        <span class="profile-info fa-stack">
+                            <i class="fa fa-circle text-white fa-stack-2x"></i>
+                            <i class="fa fa-info text-dark fa-stack-1x"></i>
+                        </span>
+                    </div>
 
-            <div class="more-details text-dark">
-                <% if user.description %>
-                    <%= simple_format user.description %>
+                    <div class="more-details text-dark">
+                        <% if user.description %>
+                            <%= simple_format user.description %>
+                        <% end %>
+                    </div>
+
+                    </li>
                 <% end %>
-            </div>
-
-            </li>
             <% end %>
         </ul>
                 

@@ -38,12 +38,19 @@
         <%= f.text_field :location, autocomplete: "location", :required => true, class: "form-control", placeholder: "Location *" %>
       </div>
 
-      <div class="form-group mt-4">
+      <div class="form-group mt-4 w-25">
         <%= f.text_field :bornDate, required: true, placeholder: "Born date *",
           data: {
             controller: "flatpickr",
             flatpickr_date_format: "d.m.Y",
-          } %>
+            flatpickr_allow_input: true,
+            flatpickr_enable_time: false,
+          }, class: "form-select" %>
+      </div>
+
+      <div class="form-group mt-4 w-25">
+        <p style="margin-bottom: 0;"> Gender * <p>
+        <%= f.select :gender, ['Male', 'Female'], {:required => true}, class: "form-select", required: true %>      
       </div>
 
       <div class="form-group mt-4">
