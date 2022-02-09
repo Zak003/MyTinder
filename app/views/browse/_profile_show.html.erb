@@ -1,0 +1,38 @@
+        <div class="row">
+        <div class="col-12 top-bar">
+            <i class="fa fa-times fa-2x text-muted" id="close-profile-show"></i>
+            <h1> Profile info </h1>
+            <table>
+            <tr>
+                <td>
+                <% if @profile.image.attached? %>
+                    <%= link_to image_tag(@profile.image, width: "150px", height: "150px", class: "profile-thumb rounded-circle top-bar-circle"), "#" %>
+                <% elsif @profile.image_social? %>
+                    <%= link_to image_tag(@profile.image_social, width: "150px", height: "150px", class: "rounded-circle mt-2 mb-4"), "#" %>
+                <% else %>
+                    <%= link_to image_pack_tag('media/images/default-profile.png', width: "150px", height: "150px", class: "rounded-circle mt-2 mb-4"), "#" %> 
+                <% end %></td>
+                
+                <td><p class="text-muted mt-2" style="margin-left: 20px;"><strong>First name: </strong><%= @profile.first_name %></p>
+                <p class="text-muted mt-2" style="margin-left: 20px;"><strong>Job/studies: </strong><%= @profile.job_studies %> </p>
+                <p class="text-muted mt-2" style="margin-left: 20px;"><strong>Location: </strong><%= @profile.location %> </p>
+                <p class="text-muted mt-2" style="margin-left: 20px;"><strong>Born date: </strong><%= @profile.bornDate.to_date %> </p>
+                <p class="text-muted mt-2" style="margin-left: 20px;"><strong>Gender: </strong><%= @profile.gender %> </p></td>
+                
+            </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            
+                    <p> <strong>Description:</strong> <%= @profile.description %> </p>
+
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-12 mt-5 bottom-bar">
+            <p><strong>I'm looking for: </strong><%= @profile.showgender %></p>
+        </div>
+    </div>

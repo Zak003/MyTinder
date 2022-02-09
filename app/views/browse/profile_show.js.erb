@@ -1,0 +1,9 @@
+$("#profile_show").html("<%= escape_javascript(render partial: 'browse/profile_show') %>").show();
+
+$("#close-profile-show").on("click", function(){
+        $("#profile_show").hide();
+});
+
+$("#profile_show").on("click", function(){
+    $("#conversation").hide();
+});

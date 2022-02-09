@@ -77,4 +77,19 @@ class BrowseController < ApplicationController
         end
     end
 
+    def profile_show
+        id = params[:id]
+        @profile = Account.find(id)
+
+        if @profile.present?
+            #get conversation entries for this user
+            
+            respond_to do |format|
+                format.js{
+                     render "browse/profile_show"
+                }
+            end
+        end
+    end
+
 end

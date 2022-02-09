@@ -1,6 +1,7 @@
     <div class="row">
         <div class="col-12 top-bar">
             <i class="fa fa-times fa-2x text-muted" id="close-conversation"></i>
+            
             <% if @profile.image.attached? %>
                 <%= link_to image_tag(@profile.image, width: "40px", height: "40px", class: "profile-thumb rounded-circle top-bar-circle"), "#" %>
             <% elsif @profile.image_social? %>

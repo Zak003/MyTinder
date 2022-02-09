@@ -10,7 +10,7 @@ $(function(){
             method: "post",
             dataType: "script"
         })
-    })
+    });
 
     $(".profile-info").on("click", function(){
         var $details = $(this).closest(".slide").find(".more-details");
@@ -29,7 +29,7 @@ $(function(){
             method: "post",
             dataType: "script"
         })
-    })
+    });
 
     $("#close-conversation").on("click", function(){
         $("#conversation").hide();
@@ -63,6 +63,23 @@ $(function(){
         });
             goToSlide('approve');
     });
+
+    $(".profile_picture").on("click", function(){
+        var account_id = $(this).data("id");
+
+        $.ajax({
+            url: "/get/profile_show/"+account_id,
+            method: "post",
+            dataType: "script"
+        })
+
+        $("#profile_show").show();
+    });
+
+    $("#close-profile-show").on("click", function(){
+        $("#profile_show").hide();
+    });
+
 
     function goToSlide(action) {
         $activeSlide.removeClass("showing");
