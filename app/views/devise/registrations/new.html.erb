@@ -53,6 +53,11 @@
         <%= f.select :gender, ['Male', 'Female'], {:required => true}, class: "form-select", required: true %>      
       </div>
 
+      <div class="choose-gender-sign-up form-group mt-4 mb-4">
+        <%= f.label "Choose the gender you are looking for on MyTinder: *" %>
+        <%= f.select :showgender, ['Male', 'Female'], {:required => true}, class: "form-select", autocomplete: "showgender", style: "width: 30%; margin-top: 10px;", required: true %>      
+      </div>
+
       <div class="form-group mt-4">
         <%= f.text_field :description, autocomplete: "description", class: "form-control", placeholder: "Description" %>
       </div>

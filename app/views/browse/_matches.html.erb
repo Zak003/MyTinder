@@ -4,14 +4,29 @@
             <% if match.image.attached? %>
                 <div class="match-tile" data-id="<%= match.id %>" style="background-image: url('<%= url_for match.image %>')">
                     <p class="text-white"><%= match.first_name %></p>
+                    
+                    <div class="profile_picture d-inline-block fa-stack" data-id="<%= match.id %>" title="Profile info">
+                        <i class="fas fa-circle fa-stack-1x text-white"></i>
+                        <i class="fas fa-info fa-stack-1x text-black"></i>
+                    </div>
                 </div>
              <% elsif match.image_social? %>
                 <div class="match-tile" data-id="<%= match.id %>" style="background-image: url('<%= image_url match.image_social %>')">
                     <p class="text-white"><%= match.first_name %></p>
+
+                    <div class="profile_picture d-inline-block fa-stack" data-id="<%= match.id %>" title="Profile info">
+                        <i class="fas fa-circle fa-stack-1x text-white"></i>
+                        <i class="fas fa-info fa-stack-1x text-black"></i>
+                    </div>
                 </div>
             <% else %>
                 <div class="match-tile" data-id="<%= match.id %>" style="background-image: url('<%= asset_pack_url('media/images/default-profile.png') %>')">
                     <p class="text-white"><%= match.first_name %></p>
+
+                    <div class="profile_picture d-inline-block fa-stack" data-id="<%= match.id %>" title="Profile info">
+                        <i class="fas fa-circle fa-stack-1x text-white"></i>
+                        <i class="fas fa-info fa-stack-1x text-black"></i>
+                    </div>
                 </div>
             <% end %>
             </div>

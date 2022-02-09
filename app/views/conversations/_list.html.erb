@@ -6,6 +6,10 @@
                     <%= profile_thumbnail account %>
 
                     <strong><%= account.first_name %></strong>
+                    <div class="profile_picture d-inline-block fa-stack" data-id="<%= account.id %>" title="Profile info">
+                        <i class="fas fa-circle fa-stack-1x text-white"></i>
+                        <i class="fas fa-info fa-stack-1x text-black"></i>
+                    </div>
                     <%= simple_format conversation.messages.last.body %>
                 </div>
             </div>

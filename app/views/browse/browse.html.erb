@@ -36,7 +36,7 @@
 
         <ul id="slides">
             <% @users.each_with_index do |user, i| %>
-                <% if current_account.showgender == user.gender %>
+                <% if current_account.showgender == user.gender  %>
                     <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= user.id %>">
                     <% if user.image.attached? %>
                         <div class="image-carousel" style="background-image: url('<%= url_for user.image %>')">
@@ -48,6 +48,7 @@
                         <div class="image-carousel" style="background-image: url('<%= asset_pack_url('media/images/default-profile.png') %>')">
                         </div>
                     <% end %>
+
                     <div class="user-details"> 
                         <span class="user-name"><%= user.first_name %></span>, <%= (((Time.zone.now.to_i) - (user.bornDate.to_i)) / 1.year.seconds).floor %> <br />
                         <i class="fa fa-graduation-cap mr-1"></i> <%= user.job_studies %> <br />
@@ -64,10 +65,12 @@
                             <%= simple_format user.description %>
                         <% end %>
                     </div>
-
                     </li>
                 <% end %>
             <% end %>
+            <div class="image-carousel" style="background-image: url('<%= asset_pack_url('media/images/tinder-loading.gif') %>'); background-size: 70%;">
+            </div>
+                
         </ul>
                 
         <div id="slide-controls">
@@ -83,6 +86,10 @@
 
         <div id="conversation">
         </div>
+
+        <div id="profile_show">
+        </div>
+       
     </div>
 </div>
 
