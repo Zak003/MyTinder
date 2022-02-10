@@ -11,7 +11,6 @@ $(function(){
             dataType: "script"
         })
     });
-
     $(".profile-info").on("click", function(){
         var $details = $(this).closest(".slide").find(".more-details");
 
